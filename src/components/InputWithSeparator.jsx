@@ -1,4 +1,5 @@
 import React from "react";
+import { formatNumber } from "@/utils/common";
 
 export default function InputWithSeparator({
   value,
@@ -7,13 +8,6 @@ export default function InputWithSeparator({
   placeholder = "",
   required = false,
 }) {
-  // форматируем число с запятыми
-  const formatNumber = (val) => {
-    if (!val) return "";
-    return val.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  };
-
-  // убираем запятые для хранения
   const handleChange = (e) => {
     const raw = e.target.value.replace(/,/g, "");
     onChange(raw);

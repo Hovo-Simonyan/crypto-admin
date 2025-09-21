@@ -1,7 +1,6 @@
 "use client";
 import BuyComponent from "@/components/BuyComponent";
 import SellComponent from "@/components/SellComponent";
-import TransactionsList from "@/components/TransactionsList";
 import React, { useState } from "react";
 
 export default function Main() {
@@ -35,8 +34,6 @@ export default function Main() {
       <div className="mt-6">
         {activeTab === "buy" ? <BuyComponent /> : <SellComponent />}
       </div>
-
-      <TransactionsList />
     </>
   );
 }

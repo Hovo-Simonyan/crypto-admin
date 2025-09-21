@@ -41,6 +41,9 @@ export function Header() {
         <Link href="/" className={linkClass("/")}>
           Main
         </Link>
+        <Link href="/transactions" className={linkClass("/transactions")}>
+          Transactions
+        </Link>
         <Link href="/balance" className={linkClass("/balance")}>
           Balance
         </Link>

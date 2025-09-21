@@ -3,7 +3,7 @@ import { Transaction, Balance } from "@/lib/models";
 
 export async function GET() {
   await connectToDatabase();
-  const transactions = await Transaction.find().sort({ createdAt: -1 });
+  const transactions = await Transaction.find().sort({ createdAt: -1 }).populate('clientId', 'fullName');
   return Response.json(transactions);
 }
 
