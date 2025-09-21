@@ -1,7 +1,10 @@
+"use server";
+import dotenv from "dotenv";
+dotenv.config();
 import mongoose from "mongoose";
 
 const MONGODB_URI = process.env.MONGO_URL;
-console.log(MONGODB_URI)
+
 let cached = global.mongoose;
 
 if (!cached) {
