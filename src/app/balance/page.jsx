@@ -21,6 +21,7 @@ export default function BalancePage() {
         const data = await res.json();
         setBalances(data);
       } catch (error) {
+        alert(error.message);
         console.error("Failed to fetch balances:", error);
       }
     };
@@ -101,6 +102,7 @@ export default function BalancePage() {
         alert("Error while saving balance.");
       }
     } catch (error) {
+      alert(error.message);
       console.error("Failed to submit balance:", error);
     }
   };
@@ -118,6 +120,7 @@ export default function BalancePage() {
           alert("Error deleting balance.");
         }
       } catch (error) {
+        alert(error.message);
         console.error("Failed to delete balance:", error);
       }
     }

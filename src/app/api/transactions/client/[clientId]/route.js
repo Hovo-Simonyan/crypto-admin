@@ -14,6 +14,7 @@ export async function GET(req, { params }) {
     return new Response(JSON.stringify(transactions), { status: 200 });
   } catch (error) {
     console.error("🚀 ~ error:", error);
+    alert(error.message);
     return new Response("Failed to fetch transactions", { status: 500 });
   }
 }

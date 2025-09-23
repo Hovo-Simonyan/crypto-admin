@@ -24,6 +24,7 @@ export async function PUT(req, { params }) {
     return NextResponse.json(updatedBalance, { status: 200 });
   } catch (error) {
     console.error("PUT Balance Error:", error);
+    alert(error.message);
     return NextResponse.json(
       { error: "Error updating balance" },
       { status: 500 }
@@ -47,6 +48,8 @@ export async function DELETE(req, { params }) {
     );
   } catch (error) {
     console.error("DELETE Balance Error:", error);
+    alert(error.message);
+
     return NextResponse.json(
       { error: "Error deleting balance" },
       { status: 500 }

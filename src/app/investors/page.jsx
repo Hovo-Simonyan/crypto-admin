@@ -92,6 +92,8 @@ const InvestorModal = ({
         });
       }
     } catch (err) {
+      alert(err.message);
+
       console.error("Error saving investor", err);
     }
   };
@@ -242,6 +244,8 @@ export default function Investors() {
         const data = await res.json();
         setInvestors(data);
       } catch (err) {
+        alert(err.message);
+
         console.error("Failed to fetch investors", err);
       }
     };
@@ -269,6 +273,8 @@ export default function Investors() {
         if (res.ok)
           setInvestors((prev) => prev.filter((inv) => inv._id !== id));
       } catch (err) {
+        alert(err.message);
+
         console.error("Error deleting investor", err);
       }
     }

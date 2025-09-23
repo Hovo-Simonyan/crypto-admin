@@ -3,9 +3,9 @@ import React, { useEffect, useMemo, useState } from "react";
 
 export default function SellComponent() {
   const [clientId, setClientId] = useState("");
-  const [giveCurrency, setGiveCurrency] = useState("");
+  const [giveCurrency, setGiveCurrency] = useState("USDT");
   const [giveAmount, setGiveAmount] = useState("");
-  const [receiveCurrency, setReceiveCurrency] = useState("");
+  const [receiveCurrency, setReceiveCurrency] = useState("USD");
   const [receiveAmount, setReceiveAmount] = useState("");
   const [realGivenAmount, setRealGivenAmount] = useState("");
   const [percent, setPercent] = useState(0.5);
@@ -21,12 +21,11 @@ export default function SellComponent() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [clientsRes, coursesRes, balancesRes] =
-          await Promise.all([
-            fetch("/api/clients"),
-            fetch("/api/courses"),
-            fetch("/api/balances"),
-          ]);
+        const [clientsRes, coursesRes, balancesRes] = await Promise.all([
+          fetch("/api/clients"),
+          fetch("/api/courses"),
+          fetch("/api/balances"),
+        ]);
 
         const clientsData = await clientsRes.json();
         const coursesData = await coursesRes.json();
@@ -35,17 +34,6 @@ export default function SellComponent() {
         setBalances(balancesData);
         setClients(clientsData);
         setCourses(coursesData);
-
-        // Set default currencies
-        if (coursesData.length) {
-          setGiveCurrency(coursesData[0].name);
-          setReceiveCurrency(
-            coursesData.length > 1 ? coursesData[1].name : coursesData[0].name
-          );
-        } else {
-          setGiveCurrency("AMD");
-          setReceiveCurrency("USD");
-        }
       } catch (error) {
         console.error("Failed to fetch data", error);
       }

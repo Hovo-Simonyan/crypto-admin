@@ -17,6 +17,7 @@ export async function DELETE(req, { params }) {
     return new Response(null, { status: 204 });
   } catch (error) {
     console.error("🚀 ~ error:", error);
+    alert(error.message);
     return new Response("Failed to delete transaction", { status: 500 });
   }
 }

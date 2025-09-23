@@ -6,7 +6,7 @@ const { Schema, model, models } = mongoose;
 const ClientSchema = new Schema(
   {
     fullName: { type: String }, // Полное имя клиента
-    email: { type: String, unique: true, index: true }, // Email, должен быть уникальным
+    email: { type: String }, // Email, должен быть уникальным
     phone: { type: [String], default: [] }, // Массив номеров телефона
     idCard: { type: String }, // Паспортные данные (бывший "id")
     passport: { type: String }, // Старое поле, если ещё нужно
@@ -30,7 +30,7 @@ const ClientSchema = new Schema(
 const AdminSchema = new Schema(
   {
     fullName: { type: String }, // Полное имя администратора
-    email: { type: String, unique: true, index: true }, // Email
+    email: { type: String }, // Email
     password: { type: String }, // Хэшированный пароль
   },
   { timestamps: true } // createdAt и updatedAt
@@ -69,7 +69,7 @@ const TransactionSchema = new Schema(
 // ======= 4. Курсы валют =======
 const CourseSchema = new Schema(
   {
-    name: { type: String, unique: true }, // Название валюты (USD, FTN и т.д.)
+    name: { type: String }, // Название валюты (USD, FTN и т.д.)
 
     sell: { type: Number }, // Курс продажи (продаем клиенту)
     buy: { type: Number }, // Курс покупки (покупаем у клиента)

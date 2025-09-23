@@ -17,6 +17,7 @@ export async function GET(req, { params }) {
     return new Response(JSON.stringify(sale), { status: 200 });
   } catch (error) {
     console.error("🚀 ~ error:", error);
+    alert(error.message);
     return new Response("Failed to fetch office sale", { status: 500 });
   }
 }
@@ -51,6 +52,7 @@ export async function PUT(req, { params }) {
     return new Response(JSON.stringify(updatedSale), { status: 200 });
   } catch (error) {
     console.error("🚀 ~ error:", error);
+    alert(error.message);
     return new Response("Failed to update office sale", { status: 500 });
   }
 }
@@ -70,6 +72,7 @@ export async function DELETE(req, { params }) {
     return new Response(null, { status: 204 });
   } catch (error) {
     console.error("🚀 ~ error:", error);
+    alert(error.message);
     return new Response("Failed to delete office sale", { status: 500 });
   }
 }

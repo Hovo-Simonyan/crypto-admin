@@ -37,6 +37,7 @@ export async function POST(req) {
       status: 201,
     });
   } catch (error) {
+    alert(error.message);
     console.error("Error creating office sale:", error);
     return new Response("Failed to create office sale", {
       status: 500,

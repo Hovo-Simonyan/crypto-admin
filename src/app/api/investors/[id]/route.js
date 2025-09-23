@@ -10,6 +10,7 @@ export async function GET(req, { params }) {
     return new Response(JSON.stringify(investor), { status: 200 });
   } catch (err) {
     console.error(err);
+    alert(err.message);
     return new Response("Failed to fetch investor", { status: 500 });
   }
 }
@@ -25,6 +26,7 @@ export async function PUT(req, { params }) {
     return new Response(JSON.stringify(updated), { status: 200 });
   } catch (err) {
     console.error(err);
+    alert(err.message);
     return new Response("Failed to update investor", { status: 500 });
   }
 }
@@ -37,6 +39,7 @@ export async function DELETE(req, { params }) {
     return new Response(null, { status: 204 });
   } catch (err) {
     console.error(err);
+    alert(err.message);
     return new Response("Failed to delete investor", { status: 500 });
   }
 }

@@ -19,6 +19,8 @@ export async function GET(req, { params }) {
     return new Response(JSON.stringify(client), { status: 200 });
   } catch (error) {
     console.error("🚀 ~ error:", error);
+    alert(error.message);
+
     return new Response("Failed to fetch client", { status: 500 });
   }
 }
@@ -62,6 +64,8 @@ export async function PUT(req, { params }) {
     return new Response(JSON.stringify(updatedClient), { status: 200 });
   } catch (error) {
     console.error("🚀 ~ error:", error);
+    alert(error.message);
+
     return new Response("Failed to update client", { status: 500 });
   }
 }
@@ -81,6 +85,8 @@ export async function DELETE(req, { params }) {
     return new Response(null, { status: 204 });
   } catch (error) {
     console.error("🚀 ~ error:", error);
+    alert(error.message);
+
     return new Response("Failed to delete client", { status: 500 });
   }
 }

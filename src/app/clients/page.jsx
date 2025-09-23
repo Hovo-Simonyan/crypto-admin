@@ -115,6 +115,7 @@ const ClientModal = ({
         });
       }
     } catch (err) {
+      alert(err.message);
       console.error("Error saving client", err);
     }
   };
@@ -141,7 +142,7 @@ const ClientModal = ({
             </div>
             <div>
               <label className="block text-sm font-medium text-white mb-2">
-                Email
+                Telegram
               </label>
               <input
                 type="email"
@@ -282,7 +283,6 @@ const ClientModal = ({
 };
 
 export default function Clients() {
-
   const [clients, setClients] = useState([]);
   const [search, setSearch] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -295,6 +295,7 @@ export default function Clients() {
         const data = await res.json();
         setClients(data);
       } catch (err) {
+        alert(err.message);
         console.error("Failed to fetch clients", err);
       }
     };
@@ -335,6 +336,7 @@ export default function Clients() {
           );
         }
       } catch (err) {
+        alert(err.message);
         console.error("Error deleting client", err);
       }
     }
@@ -370,7 +372,7 @@ export default function Clients() {
           <thead className="bg-gray-700 text-gray-200">
             <tr>
               <th className="p-3">Full Name</th>
-              <th className="p-3">Email</th>
+              <th className="p-3">Telegram</th>
               <th className="p-3">Phones</th>
               <th className="p-3">Passport</th>
               <th className="p-3">ID Card</th>

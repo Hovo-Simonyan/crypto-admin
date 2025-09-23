@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 import { usePathname } from "next/navigation";
 import { Header } from "@/components/Header";
@@ -20,6 +20,26 @@ const geistMono = Geist_Mono({
 export default function RootLayout({ children }) {
   const pathname = usePathname();
   useAdminAuth();
+
+  useEffect(() => {
+    const handleError = (event) => {
+      console.error("Uncaught Error:", event.error);
+      alert("Unexpected error: " + event.error?.message);
+    };
+
+    const handleRejection = (event) => {
+      console.error("Unhandled Promise:", event.reason);
+      alert("Unhandled Promise: " + event.reason?.message);
+    };
+
+    window.addEventListener("error", handleError);
+    window.addEventListener("unhandledrejection", handleRejection);
+
+    return () => {
+      window.removeEventListener("error", handleError);
+      window.removeEventListener("unhandledrejection", handleRejection);
+    };
+  }, []);
 
   if (pathname === "/login") {
     return (

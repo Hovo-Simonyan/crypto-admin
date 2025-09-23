@@ -18,8 +18,16 @@ export async function GET() {
 // POST: Создание нового клиента
 export async function POST(req) {
   try {
-    const { fullName, email, phone, idCard, passport, notes, status } =
-      await req.json();
+    const {
+      fullName,
+      email,
+      phone,
+      idCard,
+      passport,
+      notes,
+      status,
+      clientBalances,
+    } = await req.json();
 
     await connectToDatabase();
 
@@ -31,6 +39,7 @@ export async function POST(req) {
       passport,
       notes, // по умолчанию пустая строка
       status, // по умолчанию normal
+      clientBalances,
     });
 
     await newClient.save();

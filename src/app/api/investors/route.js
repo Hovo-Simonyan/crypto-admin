@@ -9,6 +9,7 @@ export async function GET() {
     return new Response(JSON.stringify(investors), { status: 200 });
   } catch (err) {
     console.error(err);
+    alert(err.message);
     return new Response("Failed to fetch investors", { status: 500 });
   }
 }
@@ -21,6 +22,7 @@ export async function POST(req) {
     return new Response(JSON.stringify(investor), { status: 201 });
   } catch (err) {
     console.error(err);
+    alert(err.message);
     return new Response("Failed to create investor", { status: 500 });
   }
 }

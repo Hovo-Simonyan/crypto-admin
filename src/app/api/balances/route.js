@@ -29,6 +29,7 @@ export async function POST(req) {
     return NextResponse.json(newBalance, { status: 201 });
   } catch (error) {
     console.error("POST Balance Error:", error);
+    alert(error.message)
     return NextResponse.json(
       { error: "Error creating balance" },
       { status: 500 }

@@ -22,6 +22,7 @@ export default function CoursesPage() {
       const data = await res.json();
       setCourses(data);
     } catch (err) {
+      alert(err.message);
       console.error("Failed to fetch courses:", err);
     } finally {
       setLoading(false);
@@ -75,6 +76,7 @@ export default function CoursesPage() {
       await fetchCourses();
       closeDialog();
     } catch (err) {
+      alert(err.message);
       console.error("Failed to save course:", err);
     }
   };
@@ -86,6 +88,8 @@ export default function CoursesPage() {
       await fetch(`/api/courses/${id}`, { method: "DELETE" });
       await fetchCourses();
     } catch (err) {
+      alert(err.message);
+
       console.error("Failed to delete course:", err);
     }
   };

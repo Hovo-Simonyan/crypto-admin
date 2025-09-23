@@ -33,6 +33,7 @@ export default function ClientDetails() {
         setTransactions(transactionsData);
       } catch (error) {
         console.error("Error fetching data:", error);
+        alert(error.message);
         setError(error.message); // Set the error state
       } finally {
         setLoading(false);

@@ -4,7 +4,7 @@ import InputWithSeparator from "./InputWithSeparator";
 
 export default function BuyComponent() {
   const [clientId, setClientId] = useState("");
-  const [giveCurrency, setGiveCurrency] = useState("");
+  const [giveCurrency, setGiveCurrency] = useState("USDT");
   const [giveAmount, setGiveAmount] = useState("");
   const [exchangeRate, setExchangeRate] = useState("");
   const [receiveCurrency, setReceiveCurrency] = useState("AMD");
@@ -32,11 +32,6 @@ export default function BuyComponent() {
       const fetchedCourses = await coursesRes.json();
       setCourses(fetchedCourses);
       setBalances(await balancesRes.json());
-
-      if (fetchedCourses.length) {
-        const usdCourse = fetchedCourses.find((c) => c.name === "USD");
-        setGiveCurrency(usdCourse ? "USD" : fetchedCourses[0].name);
-      }
     };
     fetchData();
   }, []);
