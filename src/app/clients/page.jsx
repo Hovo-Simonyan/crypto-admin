@@ -145,7 +145,7 @@ const ClientModal = ({
                 Telegram
               </label>
               <input
-                type="email"
+                type="text"
                 name="email"
                 value={clientDetails.email}
                 onChange={handleChange}
